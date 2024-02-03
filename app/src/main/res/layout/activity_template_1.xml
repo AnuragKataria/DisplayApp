@@ -1,0 +1,1068 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_cream"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/light_cream"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    android:orientation="vertical">
+
+                    <com.quickfix.displaytv.common_ui.TextwithFont
+                        android:id="@+id/productOne"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|left"
+                        android:text=""
+                        android:textColor="@color/dark_brown"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <com.quickfix.displaytv.common_ui.TextwithFontRegular
+                        android:id="@+id/descOne"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/light_brown"
+                        android:textSize="14dp" />
+
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/priceOne"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/priceDOne"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/imageOne"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                     />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/dark_cream"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    android:orientation="vertical">
+
+                    <com.quickfix.displaytv.common_ui.TextwithFont
+                        android:id="@+id/productTwo"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|left"
+                        android:text=""
+                        android:textColor="@color/dark_brown"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <com.quickfix.displaytv.common_ui.TextwithFontRegular
+                        android:id="@+id/descTwo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/light_brown"
+                        android:textSize="14dp" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/priceTwo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="14dp"
+
+                            android:textStyle="bold" />
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/priceDTwo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/imageTwo"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                     />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/light_cream"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    android:orientation="vertical">
+
+                    <com.quickfix.displaytv.common_ui.TextwithFont
+                        android:id="@+id/productThree"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|left"
+                        android:text=""
+                        android:textColor="@color/dark_brown"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <com.quickfix.displaytv.common_ui.TextwithFontRegular
+                        android:id="@+id/descThree"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/light_brown"
+                        android:textSize="14dp" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/priceThree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="14dp"
+
+                            android:textStyle="bold" />
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/priceDThree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/imageThree"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                     />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/dark_cream"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    android:orientation="vertical">
+
+                    <com.quickfix.displaytv.common_ui.TextwithFont
+                        android:id="@+id/productFour"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|left"
+                        android:text=""
+                        android:textColor="@color/dark_brown"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <com.quickfix.displaytv.common_ui.TextwithFontRegular
+                        android:id="@+id/descFour"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/light_brown"
+                        android:textSize="14dp" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/priceFour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="14dp"
+
+                            android:textStyle="bold" />
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/priceDFour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/imageFour"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                     />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@color/light_cream"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    android:orientation="vertical">
+
+                    <com.quickfix.displaytv.common_ui.TextwithFont
+                        android:id="@+id/productFive"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|left"
+                        android:text=""
+                        android:textColor="@color/dark_brown"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <com.quickfix.displaytv.common_ui.TextwithFontRegular
+                        android:id="@+id/descFive"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/light_brown"
+                        android:textSize="14dp" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/priceFive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="14dp"
+
+                            android:textStyle="bold" />
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/priceDFive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/imageFive"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                     />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="5dp"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:weightSum="2"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="2"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/imageStyleOne"
+                        android:layout_width="0dp"
+                        android:scaleType="fitXY"
+                        android:layout_weight="1"
+                        android:layout_marginRight="2dp"
+                        android:layout_height="wrap_content"
+                         />
+                    <ImageView
+                        android:id="@+id/imageStyleTwo"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        android:layout_marginLeft="3dp"
+                        android:layout_height="wrap_content"
+                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="2"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/imageStyleThree"
+                        android:scaleType="fitXY"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="2"
+                android:orientation="vertical">
+
+                <com.quickfix.displaytv.common_ui.TextwithFont
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/pageName"
+                    android:text=""
+                    android:textColor="@color/dark_brown"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/light_cream"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+
+                        android:orientation="vertical">
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/productEleven"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <com.quickfix.displaytv.common_ui.TextwithFontRegular
+                            android:id="@+id/descEleven"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/light_brown"
+                            android:textSize="14dp" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+                                android:id="@+id/priceEleven"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+
+                                android:textStyle="bold" />
+
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+                                android:id="@+id/priceDEleven"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/imageEleven"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                         />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/dark_cream"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+
+                        android:orientation="vertical">
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/productTwelve"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <com.quickfix.displaytv.common_ui.TextwithFontRegular
+                            android:id="@+id/descTwelve"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/light_brown"
+                            android:textSize="14dp" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+                                android:id="@+id/priceTwelve"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+
+                                android:textStyle="bold" />
+
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+                                android:id="@+id/priceDTwelve"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/imageTwelve"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                         />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/light_cream"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+
+                        android:orientation="vertical">
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/productSix"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <com.quickfix.displaytv.common_ui.TextwithFontRegular
+                            android:id="@+id/descSix"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/light_brown"
+                            android:textSize="14dp" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+                                android:id="@+id/priceSix"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+
+                                android:textStyle="bold" />
+
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+                                android:id="@+id/priceDSix"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/imageSix"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                         />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/dark_cream"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+
+                        android:orientation="vertical">
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/productSeven"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <com.quickfix.displaytv.common_ui.TextwithFontRegular
+                            android:id="@+id/descSeven"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/light_brown"
+                            android:textSize="14dp" />
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+                                android:id="@+id/priceSeven"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+
+                                android:textStyle="bold" />
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+                                android:id="@+id/priceDSeven"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/imageSeven"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                         />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/light_cream"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+
+                        android:orientation="vertical">
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/productEight"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <com.quickfix.displaytv.common_ui.TextwithFontRegular
+                            android:id="@+id/descEight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/light_brown"
+                            android:textSize="14dp" />
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+
+                                android:id="@+id/priceEight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+
+                                android:textStyle="bold" />
+
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+                                android:id="@+id/priceDEight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/imageEight"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                         />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/dark_cream"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+
+                        android:orientation="vertical">
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/productNine"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <com.quickfix.displaytv.common_ui.TextwithFontRegular
+                            android:id="@+id/descNine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/light_brown"
+                            android:textSize="14dp" />
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+                                android:id="@+id/priceNine"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+
+                                android:textStyle="bold" />
+
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+                                android:id="@+id/priceDNine"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/imageNine"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                         />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/light_cream"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+
+                        android:orientation="vertical">
+
+                        <com.quickfix.displaytv.common_ui.TextwithFont
+                            android:id="@+id/productTen"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:text=""
+                            android:textColor="@color/dark_brown"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <com.quickfix.displaytv.common_ui.TextwithFontRegular
+                            android:id="@+id/descTen"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/light_brown"
+                            android:textSize="14dp" />
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+
+
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+                                android:id="@+id/priceTen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+
+                                android:textStyle="bold" />
+                            <com.quickfix.displaytv.common_ui.TextwithFont
+                                android:id="@+id/priceDTen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center|left"
+                                android:text=""
+                                android:textColor="@color/dark_brown"
+                                android:textSize="14dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/imageTen"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                         />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:background="#000000">
+
+        <com.quickfix.displaytv.common_ui.TextwithFont
+            android:id="@+id/title"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.4"
+            android:text="@string/activate_tv"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="40dp"
+            android:background="@drawable/edit_back"
+
+            android:elevation="5dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp">
+
+            <com.quickfix.displaytv.common_ui.TextwithFont
+                android:id="@+id/prefill"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="APP-"
+                android:textSize="20dp" />
+
+            <com.quickfix.displaytv.common_ui.EditTextwithFont
+                android:id="@+id/edCode"
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:hint="XXXXXXXXX"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:nextFocusDown="@+id/btnActiviate"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@color/lb_grey"
+                android:textSize="25dp" />
+
+
+        </LinearLayout>
+
+
+        <com.quickfix.displaytv.common_ui.ButtonwithFont
+            android:id="@+id/btnActivate"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/btn_focused"
+            android:text="Activate"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</RelativeLayout>

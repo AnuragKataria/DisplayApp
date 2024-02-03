@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        android:background="@drawable/transparent_back">
+
+        <com.quickfix.displaytv.common_ui.TextwithFont
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.4"
+            android:text="@string/pref"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+
+
+        <RadioGroup
+
+            android:id="@+id/radioGroup"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginHorizontal="50dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <com.quickfix.displaytv.common_ui.RadioBoxWithFont
+                android:layout_width="400dp"
+                android:id="@+id/one"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="10dp"
+                android:buttonTint="@android:color/holo_green_dark"
+                android:paddingHorizontal="20dp"
+                android:text="Simple Slide Animation"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+            <com.quickfix.displaytv.common_ui.RadioBoxWithFont
+                android:layout_width="400dp"
+                android:id="@+id/two"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="10dp"
+                android:buttonTint="@android:color/holo_green_dark"
+                android:paddingHorizontal="20dp"
+                android:text="Vertical Flip Animation "
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+            <com.quickfix.displaytv.common_ui.RadioBoxWithFont
+                android:layout_width="400dp"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="10dp"
+                android:id="@+id/three"
+                android:buttonTint="@android:color/holo_green_dark"
+                android:paddingHorizontal="20dp"
+                android:text="Horizontal Flip Animation "
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+            <com.quickfix.displaytv.common_ui.RadioBoxWithFont
+                android:layout_width="400dp"
+                android:layout_height="60dp"
+                android:id="@+id/four"
+                android:layout_marginHorizontal="10dp"
+                android:buttonTint="@android:color/holo_green_dark"
+                android:paddingHorizontal="20dp"
+                android:text="Cube In  Animation"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+            <com.quickfix.displaytv.common_ui.RadioBoxWithFont
+                android:layout_width="400dp"
+                android:layout_height="60dp"
+                android:id="@+id/five"
+                android:layout_marginHorizontal="10dp"
+                android:buttonTint="@android:color/holo_green_dark"
+                android:paddingHorizontal="20dp"
+                android:text="Vertical Shut  Animation"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+
+        </RadioGroup>
+
+        <com.quickfix.displaytv.common_ui.ButtonwithFont
+            android:id="@+id/btnActivate"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/btn_focused"
+            android:text="Save"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

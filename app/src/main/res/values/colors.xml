@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fec93d</color>
+    <color name="colorPrimaryDark">#fec93d</color>
+    <color name="colorAccent">#fec93d</color>
+    <color name="colorIconBg">#fec93d</color>
+
+
+    <color name="background_gradient_start">#000000</color>
+    <color name="background_gradient_end">#DDDDDD</color>
+    <color name="fastlane_background">#0096a6</color>
+    <color name="search_opaque">#ffaa3f</color>
+    <color name="selected_background">#ffaa3f</color>
+    <color name="default_background">#3d3d3d</color>
+    <color name="white">#FFFFFF</color>
+    <color name="dark_brown">#4A3A2A</color>
+    <color name="light_brown">#4F4232</color>
+    <color name="dark_cream">#F6EADA</color>
+    <color name="light_cream">#FBF2E9</color>
+    <color name="template_2_background">#780E80</color>
+    <color name="transparent_mask">#72000000</color>
+    <color name="dark_brown_">#350201</color>
+    <color name="yellow">#FFE502</color>
+    <color name="orange">#FF4E00</color>
+</resources>

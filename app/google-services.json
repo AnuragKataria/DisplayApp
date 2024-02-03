@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "724878645266",
+    "firebase_url": "https://displaytvapp-default-rtdb.firebaseio.com",
+    "project_id": "displaytvapp",
+    "storage_bucket": "displaytvapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724878645266:android:38727f1d18b426022e60cb",
+        "android_client_info": {
+          "package_name": "com.quickfix.displaytv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724878645266-c4pdnfunimn4s3gmsku7n4ht263ji99p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4F4-n5gUlqvi4lKbpkk8nBzvpReNPhQk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724878645266-c4pdnfunimn4s3gmsku7n4ht263ji99p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
