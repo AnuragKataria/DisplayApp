@@ -1,5 +1,6 @@
 package com.quickfix.displaytv.viewpagertransformation.Fragments;
 
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -53,10 +54,9 @@ public class VideoFragment extends Fragment {
     private void assignIds(View v) {
         try {
             videoView = v.findViewById(R.id.videoView);
-            if(DisplaySingleTone.getInstance().getFirstType() ==1){
+            if(DisplaySingleTone.getInstance().getFirstType() == 1){
                 playVideo();
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -66,5 +66,17 @@ public class VideoFragment extends Fragment {
     private void playVideo(){
         videoView.setVideoURI(Uri.parse(video));
         videoView.start();
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                if(DisplaySingleTone.getInstance().getFirstType() == 1){
+                    try {
+                        playVideo();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        });
     }
 }

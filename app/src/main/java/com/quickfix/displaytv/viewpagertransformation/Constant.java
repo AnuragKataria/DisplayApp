@@ -2,8 +2,10 @@ package com.quickfix.displaytv.viewpagertransformation;
 
 public class Constant {
 
-    public final static String TRANSFORMATION = "transformation";
+    public static String TEMPLATE_ID_1= "NpcT8nq7r7dNpJKMvlZ";
+    public static String TEMPLATE_ID_2= "NpcT8nq7r7dNpJKMvlZ";
 
+    public final static String TRANSFORMATION = "transformation";
     public final static String SLOW_TRANSFORMATION = "slow transformation";
     public final static String SIMPLE_TRANSFORMATION = "simple transformation";
     public final static String DEPTH_TRANSFORMATION = "depth transformation";

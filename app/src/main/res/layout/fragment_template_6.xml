@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+
+    <com.quickfix.displaytv.common_ui.TextViewBold
+        android:id="@+id/txt_cate_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="PLATTER"
+        android:layout_marginTop="-15dp"
+        android:textColor="@color/template_6_categrogy_color"
+        android:textSize="80dp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:id="@+id/cate_1"
+        android:paddingHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:id="@+id/linear_1_cate_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="2dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="1."
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:id="@+id/img_cate_1_prod_1"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@mipmap/platter" />
+
+            </LinearLayout>
+
+
+            <com.quickfix.displaytv.common_ui.TextViewBold
+                android:id="@+id/txt_cate_1_Title_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Chicken Over RICE"
+                android:textColor="@color/template_6_categrogy_color"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_1_desc_1"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+
+                    android:text="Served with basmati rice mix salad &amp; fries"
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_1_price_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:text="10$"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/tomato" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_2_cate_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_cate_1"
+            android:layout_marginTop="80dp"
+            android:layout_toRightOf="@+id/linear_1_cate_1"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="2dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="2."
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:id="@+id/img_cate_1_prod_2"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@mipmap/platter" />
+
+            </LinearLayout>
+
+
+            <com.quickfix.displaytv.common_ui.TextViewBold
+                android:id="@+id/txt_cate_1_Title_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Chicken Over RICE"
+                android:textColor="@color/template_6_categrogy_color"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_1_desc_2"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Served with basmati rice mix salad &amp; fries"
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_1_price_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+
+                    android:text="10$"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_3_cate_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/txt_cate_1"
+            android:layout_marginTop="80dp"
+            android:layout_toRightOf="@+id/linear_2_cate_1"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="2dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="3."
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:id="@+id/img_cate_1_prod_3"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@mipmap/platter" />
+
+            </LinearLayout>
+
+
+            <com.quickfix.displaytv.common_ui.TextViewBold
+                android:id="@+id/txt_cate_1_Title_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Chicken Over RICE"
+                android:textColor="@color/template_6_categrogy_color"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_1_desc_3"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+
+                    android:text="Served with basmati rice mix salad &amp; fries"
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_1_price_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"                    android:gravity="center"
+                    android:text="10$"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_4_cate_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_cate_1"
+
+            android:layout_marginTop="80dp"
+            android:layout_toRightOf="@+id/linear_3_cate_1"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="2dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="4."
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:id="@+id/img_cate_1_prod_4"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@mipmap/platter" />
+
+            </LinearLayout>
+
+
+            <com.quickfix.displaytv.common_ui.TextViewBold
+                android:id="@+id/txt_cate_1_Title_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Chicken Over RICE"
+                android:textColor="@color/template_6_categrogy_color"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_1_desc_4"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+
+                    android:text="Served with basmati rice mix salad &amp; fries"
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_1_price_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"                    android:gravity="center"
+                    android:text="10$"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linear_5_cate_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="2dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="5."
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:id="@+id/img_cate_1_prod_5"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@mipmap/platter" />
+
+            </LinearLayout>
+
+
+            <com.quickfix.displaytv.common_ui.TextViewBold
+                android:id="@+id/txt_cate_1_Title_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Chicken Over RICE"
+                android:textColor="@color/template_6_categrogy_color"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_1_desc_5"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+
+                    android:text="Served with basmati rice mix salad &amp; fries"
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_1_price_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:text="10$"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/cherrytomato" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:weightSum="3"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cate_1"
+        android:paddingHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/linear_1_cate_2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="5dp">
+
+
+            <ImageView
+                android:id="@+id/img_cate_2_prod_1"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/platter" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_Title_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Chicken Over RICE"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_desc_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+
+                    android:text="Served with basmati rice mix salad &amp; fries"
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_price_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="20$"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linear_2_cate_2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="5dp">
+
+
+            <ImageView
+                android:id="@+id/img_cate_2_prod_2"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/platter" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_Title_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Chicken Over RICE"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_desc_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+                    android:text="Served with basmati rice mix salad &amp; fries"
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_price_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="10$"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:id="@+id/txt_cate_2"
+            android:layout_width="0dp"
+            android:layout_weight=".8"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingHorizontal="20dp"
+
+            android:text="GYROS"
+            android:textColor="@color/template_6_categrogy_color"
+            android:textSize="80dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:paddingHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear"
+        android:weightSum="3"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/linear_3_cate_2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="5dp">
+
+
+            <ImageView
+                android:id="@+id/img_cate_2_prod_3"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/platter" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_Title_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Chicken Over RICE"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_desc_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+
+                    android:text="Served with basmati rice mix salad &amp; fries"
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_price_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="10$"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linear_4_cate_2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="5dp">
+
+
+            <ImageView
+                android:id="@+id/img_cate_2_prod_4"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/platter" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_Title_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Chicken Over RICE"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_desc_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+                    android:text="Served with basmati rice mix salad &amp; fries"
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_price_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="10$"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_5_cate_2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="5dp">
+
+
+            <ImageView
+                android:id="@+id/img_cate_2_prod_5"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/platter" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_Title_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Chicken Over RICE"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_desc_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+                    android:text="Served with basmati rice mix salad &amp; fries"
+                    android:textColor="@color/template_6_desc"
+                    android:textSize="15dp" />
+
+                <com.quickfix.displaytv.common_ui.TextViewBold
+                    android:id="@+id/txt_cate_2_price_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="10$"
+                    android:textColor="@color/template_6_categrogy_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="130dp"
+        android:layout_height="200dp"
+        android:gravity="right"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/cate_1"
+        android:layout_alignParentRight="true"
+        android:background="@mipmap/brush" >
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:id="@+id/txt_cate_3"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:text="GYROS"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:id="@+id/txt_extra"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|right"
+            android:layout_marginRight="10dp"
+            android:text="GYROS"
+            android:textColor="@color/template_6_extras"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

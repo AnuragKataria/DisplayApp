@@ -32,13 +32,17 @@ import com.quickfix.displaytv.R;
 import com.quickfix.displaytv.global.DisplayApplication;
 import com.quickfix.displaytv.global.DisplaySingleTone;
 import com.quickfix.displaytv.ui.SettingsActivity;
+import com.quickfix.displaytv.utils.MediaType;
 import com.quickfix.displaytv.utils.Utils;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.FirstFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.ImageFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.MainFragment;
+import com.quickfix.displaytv.viewpagertransformation.Fragments.TemplateDonationFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.TemplateFiveFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.TemplateFourFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.TemplateOneFragment;
+import com.quickfix.displaytv.viewpagertransformation.Fragments.TemplateSevenFragment;
+import com.quickfix.displaytv.viewpagertransformation.Fragments.TemplateSixFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.TemplateThreeFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.TemplateTwoFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.VideoFragment;
@@ -87,14 +91,12 @@ public class HomeActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private MyPagerAdapter pagerAdapter;
     private int currentPage = 0;
-    private Timer timer;
+    private int count = 0;
     private long DELAY_MS = 10000;
-    private long PERIOD_MS = 10000;
     private boolean isEnd = false;
     private boolean isStart = false;
     private DisplayApplication displayApplication;
     private int size;
-
     Dialog expirydialog;
     private Handler myhandler = new Handler();
     private Runnable myrunnable;
@@ -140,30 +142,110 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    private void getDataFromServer() {
-        Log.i("DATATAT", Utils.getVendorId(context));
+    private void getUpdatedValue() {
         displayApplication.getDatabaseReference().child("vendor").child(Utils.getVendorId(context)).child("restaurants").child(Utils.getUserId(context))
                 .child("screen")
                 .child(Utils.getLicenseKey(context))
-                .child("pages").addValueEventListener(new ValueEventListener() {
+                .child("updatedValue").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        try {
+                            if (snapshot != null && snapshot.getValue() != null) {
+                                String updatedValue = (String) snapshot.getValue();
+                                String savedValue = Utils.getUpdatedValue(context);
+                                if (savedValue == null) {
+                                    Utils.setUpdatedValue(context, updatedValue);
+                                } else {
+                                    if (savedValue.equals(updatedValue)) {
+
+                                    } else {
+                                        Utils.setUpdatedValue(context, updatedValue);
+                                        // Restart the app
+                                        Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.quickfix.displaytv");
+                                        if (launchIntent != null) {
+                                            startActivity(launchIntent);
+                                        }
+
+                                    }
+
+                                }
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    }
+
+    private void getDataFromServer() {
+        displayApplication.getDatabaseReference().child("vendor").child(Utils.getVendorId(context)).child("restaurants").child(Utils.getUserId(context))
+                .child("screen")
+                .child(Utils.getLicenseKey(context))
+                .child("pages").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         try {
                             size = (int) snapshot.getChildrenCount();
                             pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
                             if (snapshot.getValue() != null) {
-                                ArrayList<HashMap<String, Object>> dataArrayList = new ArrayList<>();
+                                ArrayList<Long> timeArrayList = new ArrayList<>();
                                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                     HashMap<String, Object> dataObject = (HashMap<String, Object>) dataSnapshot.getValue();
-                                    dataArrayList.add(dataObject);
+                                    String time = (String) dataObject.get("time");
+                                    String type = (String) dataObject.get("mediaType");
+                                    MediaType mediaType = MediaType.valueOf(type);
+                                    switch (mediaType) {
+                                        case Videos:
+                                        case YouTube:
+                                            try {
+                                                String min = time.split(" ")[0];
+                                                String secs = time.split(" ")[2];
+                                                long ms = Long.parseLong(min);
+                                                long sec = Long.parseLong(secs);
+                                                ms = ms * 60000;
+                                                sec = (sec + 4) * 1000;
+                                                DELAY_MS = ms + sec;
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                                DELAY_MS = 60000;
+                                            }
+                                            break;
+                                        default:
+                                            if (time == null) {
+                                                DELAY_MS = 60000;
+                                            } else if (time.contains("30")) {
+                                                DELAY_MS = 30000;
+                                            } else if (time.contains("1")) {
+                                                DELAY_MS = 60000;
+                                            } else if (time.contains("2")) {
+                                                DELAY_MS = 120000;
+                                            } else if (time.contains("3")) {
+                                                DELAY_MS = 180000;
+                                            } else if (time.contains("4")) {
+                                                DELAY_MS = 240000;
+                                            } else if (time.contains("5")) {
+                                                DELAY_MS = 300000;
+                                            } else {
+                                                DELAY_MS = 60000;
+                                            }
+                                            break;
+                                    }
+                                    timeArrayList.add(DELAY_MS);
                                     setDataOnViewFirst(dataObject);
                                 }
-
-                                Utils.saveData(context, dataArrayList);
                                 viewPager.setAdapter(pagerAdapter);
-                                Log.i("DATA FROM FIREBASE", dataArrayList.toString());
                                 myhandler.postDelayed(myrunnable = new Runnable() {
                                     public void run() {
+                                        if (count == timeArrayList.size() - 1) {
+                                            count = 0;
+                                        } else {
+                                            count++;
+                                        }
                                         boolean smoothScroll = true;
                                         if (currentPage == size - 1) {
                                             isEnd = true;
@@ -176,16 +258,14 @@ public class HomeActivity extends AppCompatActivity {
                                         if (isEnd) {
                                             currentPage = 0;
                                             smoothScroll = false;
-
                                         }
                                         if (isStart) {
                                             currentPage++;
                                         }
                                         viewPager.setCurrentItem(currentPage, smoothScroll);
-                                        myhandler.postDelayed(myrunnable, DELAY_MS);
+                                        myhandler.postDelayed(myrunnable, timeArrayList.get(count));
                                     }
-                                }, DELAY_MS);
-
+                                }, timeArrayList.get(count));
                             } else {
                                 Toast.makeText(context, "No data available for this User", Toast.LENGTH_SHORT).show();
                             }
@@ -201,7 +281,6 @@ public class HomeActivity extends AppCompatActivity {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-
                     }
                 });
 
@@ -253,32 +332,22 @@ public class HomeActivity extends AppCompatActivity {
         String name = (String) dataObject.get("name");
         String selectedAnimation = (String) dataObject.get("selectedAnimation");
         String time = (String) dataObject.get("time");
-//        PERIOD_MS = 10000;
-//        DELAY_MS = 10000;
 
         if (time == null) {
-            PERIOD_MS = 60000;
             DELAY_MS = 60000;
         } else if (time.contains("30")) {
-            PERIOD_MS = 30000;
             DELAY_MS = 30000;
         } else if (time.contains("1")) {
-            PERIOD_MS = 60000;
             DELAY_MS = 60000;
         } else if (time.contains("2")) {
-            PERIOD_MS = 120000;
             DELAY_MS = 120000;
         } else if (time.contains("3")) {
-            PERIOD_MS = 180000;
             DELAY_MS = 180000;
         } else if (time.contains("4")) {
-            PERIOD_MS = 240000;
             DELAY_MS = 240000;
         } else if (time.contains("5")) {
-            PERIOD_MS = 300000;
             DELAY_MS = 300000;
         } else {
-            PERIOD_MS = 60000;
             DELAY_MS = 60000;
         }
         setAnimations(selectedAnimation);
@@ -286,12 +355,9 @@ public class HomeActivity extends AppCompatActivity {
         boolean isPublished = (boolean) dataObject.get("isPublish");
         if (isPublished) {
             ArrayList<HashMap<String, String>> images = (ArrayList<HashMap<String, String>>) dataObject.get("styleImages");
-
-
             LinkedTreeMap<String, HashMap<String, Object>> productMap = (LinkedTreeMap<String, HashMap<String, Object>>) dataObject.get("products");
             Gson gson = new Gson();
             JsonObject jsonObject = gson.toJsonTree(productMap).getAsJsonObject();
-
 
             JsonArray jsonArray = gson.toJsonTree(images).getAsJsonArray();
             Object mapper = new ObjectMapper();
@@ -387,86 +453,65 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setDataOnViewFirst(HashMap<String, Object> dataObject) {
-        String link = (String) dataObject.get("mediaLink");
         String type = (String) dataObject.get("mediaType");
-        String time = null;
+        MediaType mediaType = MediaType.valueOf(type);
         setAnimations("VERTICAL_FLIP_TRANSFORMATION");
-        if (time == null) {
-            PERIOD_MS = 60000;
-            DELAY_MS = 60000;
-        } else if (time.contains("30")) {
-            PERIOD_MS = 30000;
-            DELAY_MS = 30000;
-        } else if (time.contains("1")) {
-            PERIOD_MS = 60000;
-            DELAY_MS = 60000;
-        } else if (time.contains("2")) {
-            PERIOD_MS = 120000;
-            DELAY_MS = 120000;
-        } else if (time.contains("3")) {
-            PERIOD_MS = 180000;
-            DELAY_MS = 180000;
-        } else if (time.contains("4")) {
-            PERIOD_MS = 240000;
-            DELAY_MS = 240000;
-        } else if (time.contains("5")) {
-            PERIOD_MS = 300000;
-            DELAY_MS = 300000;
+        if (mediaType != MediaType.Template) {
+            String link = (String) dataObject.get("mediaLink");
+            switch (mediaType) {
+                case YouTube:
+                    if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                        DisplaySingleTone.getInstance().setFirstType(2);
+                    }
+                    pagerAdapter.addFragments(new YoutubeFragment(link));
+                    break;
+                case Videos:
+                    if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                        DisplaySingleTone.getInstance().setFirstType(1);
+                    }
+                    pagerAdapter.addFragments(new VideoFragment(link));
+                    break;
+                case Images:
+                    if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                        DisplaySingleTone.getInstance().setFirstType(0);
+                    }
+                    pagerAdapter.addFragments(new ImageFragment(link));
+                    break;
+                case Donations:
+                    if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                        DisplaySingleTone.getInstance().setFirstType(5);
+                    }
+                    HashMap<String, Object> data = (HashMap<String, Object>) dataObject.get("data");
+                    pagerAdapter.addFragments(new TemplateDonationFragment(data));
+                    break;
+            }
         } else {
-            PERIOD_MS = 60000;
-            DELAY_MS = 60000;
+            // Getting data for Template
+            String template = (String) dataObject.get("templateId");
+            HashMap<String, Object> data = (HashMap<String, Object>) dataObject.get("data");
+            switch (template) {
+                case "-NpcT8nq7r7dNpJKMvlZ":
+                    if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                        DisplaySingleTone.getInstance().setFirstType(3);
+                    }
+                    pagerAdapter.addFragments(new TemplateSixFragment(data));
+                    break;
+                case "-Npk5k5DXICNBVhgh52L":
+                    if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                        DisplaySingleTone.getInstance().setFirstType(4);
+                    }
+                    pagerAdapter.addFragments(new TemplateSevenFragment(data));
+                    break;
+            }
         }
-        switch (type) {
-            case "YouTube":
-                if (DisplaySingleTone.getInstance().getFirstType() == -1) {
-                    DisplaySingleTone.getInstance().setFirstType(2);
-                }
-                pagerAdapter.addFragments(new YoutubeFragment(link));
-                break;
-            case "Videos":
-                if (DisplaySingleTone.getInstance().getFirstType() == -1) {
-                    DisplaySingleTone.getInstance().setFirstType(1);
-                }
-                pagerAdapter.addFragments(new VideoFragment("https://" + link));
-                break;
-            case "Images":
-                if (DisplaySingleTone.getInstance().getFirstType() == -1) {
-                    DisplaySingleTone.getInstance().setFirstType(0);
-                }
-                pagerAdapter.addFragments(new ImageFragment("https://" + link));
-                break;
-        }
+    }
 
-
-        //        String name = (String) dataObject.get("name");
-//        String time = (String) dataObject.get("time");
-//        String selectedAnimation = (String) dataObject.get("selectedAnimation");
-//        String template = (String) dataObject.get("template");
-//        boolean isPublished = (boolean) dataObject.get("isPublish");
-//        if (isPublished) {
-//            ArrayList<HashMap<String, String>> images = (ArrayList<HashMap<String, String>>) dataObject.get("styleImages");
-//            Log.i("Images", images.toString());
-//
-//
-//            HashMap<String, HashMap<String, Object>> productsMap = (HashMap<String, HashMap<String, Object>>) dataObject.get("products");
-//
-//
-//            switch (template) {
-//                case "-NWi5dpoXgG8Cb8qBJk6":
-//                    pagerAdapter.addFragments(new TemplateOneFragment(productsMap, images, name));
-//                    break;
-//                case "-NWi4bcsWu6BjB0kCaWd":
-//                    pagerAdapter.addFragments(new TemplateTwoFragment(productsMap, images, name));
-//                    break;
-//                case "-NWi380WUajWU9pXrCeC":
-//                    pagerAdapter.addFragments(new TemplateThreeFragment(productsMap, images, name));
-//                    break;
-//            }
-//
-//        }
+    @Override
+    public void onBackPressed() {
 
     }
 
+    // Setting ANimations on the slides
     private void setAnimations(String animationType) {
         SimpleTransformation simpleTransformation = new SimpleTransformation();
         VerticalFlipTransformation verticalFlipTransformation = new VerticalFlipTransformation();
@@ -534,6 +579,7 @@ public class HomeActivity extends AppCompatActivity {
     private void setData() {
         if (Utils.isInternetAvailable(context)) {
             try {
+                getUpdatedValue();
                 getDataFromServer();
             } catch (Exception e) {
                 e.printStackTrace();

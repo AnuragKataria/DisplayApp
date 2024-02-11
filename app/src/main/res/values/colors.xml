@@ -16,6 +16,13 @@
     <color name="dark_brown">#4A3A2A</color>
     <color name="light_brown">#4F4232</color>
     <color name="dark_cream">#F6EADA</color>
+    <color name="template_6_background">#9AC8EC</color>
+    <color name="template_6_categrogy_color">#AF4549</color>
+    <color name="template_6_desc">#45607D</color>
+    <color name="template_6_extras">#70090C</color>
+    <color name="gray">#FC7A7979</color>
+
+
     <color name="light_cream">#FBF2E9</color>
     <color name="template_2_background">#780E80</color>
     <color name="transparent_mask">#72000000</color>

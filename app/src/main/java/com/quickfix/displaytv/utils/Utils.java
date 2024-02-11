@@ -168,4 +168,19 @@ public class Utils {
 
         }
     }
+
+    public static String getUpdatedValue(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        String vid = preferences.getString("updated_value", null);
+        return vid;
+    }
+
+    public static void setUpdatedValue(Context context, String updated_value) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("updated_value", updated_value);
+        editor.apply();
+
+    }
+
 }
