@@ -142,6 +142,30 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+
+    private void getAnimation() {
+        displayApplication.getDatabaseReference().child("vendor").child(Utils.getVendorId(context)).child("restaurants").child(Utils.getUserId(context))
+                .child("screen")
+                .child(Utils.getLicenseKey(context))
+                .child("animation").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        try {
+                            if (snapshot != null && snapshot.getValue() != null) {
+                                String animation = (String) snapshot.getValue();
+                                setAnimations(animation);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    }
+
     private void getUpdatedValue() {
         displayApplication.getDatabaseReference().child("vendor").child(Utils.getVendorId(context)).child("restaurants").child(Utils.getUserId(context))
                 .child("screen")
@@ -212,12 +236,12 @@ public class HomeActivity extends AppCompatActivity {
                                                 DELAY_MS = ms + sec;
                                             } catch (Exception e) {
                                                 e.printStackTrace();
-                                                DELAY_MS = 60000;
+                                                DELAY_MS = 30000;
                                             }
                                             break;
                                         default:
                                             if (time == null) {
-                                                DELAY_MS = 60000;
+                                                DELAY_MS = 30000;
                                             } else if (time.contains("30")) {
                                                 DELAY_MS = 30000;
                                             } else if (time.contains("1")) {
@@ -455,7 +479,7 @@ public class HomeActivity extends AppCompatActivity {
     private void setDataOnViewFirst(HashMap<String, Object> dataObject) {
         String type = (String) dataObject.get("mediaType");
         MediaType mediaType = MediaType.valueOf(type);
-        setAnimations("VERTICAL_FLIP_TRANSFORMATION");
+//        setAnimations("VERTICAL_FLIP_TRANSFORMATION");
         if (mediaType != MediaType.Template) {
             String link = (String) dataObject.get("mediaLink");
             switch (mediaType) {
@@ -580,7 +604,9 @@ public class HomeActivity extends AppCompatActivity {
         if (Utils.isInternetAvailable(context)) {
             try {
                 getUpdatedValue();
+                getAnimation();
                 getDataFromServer();
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
