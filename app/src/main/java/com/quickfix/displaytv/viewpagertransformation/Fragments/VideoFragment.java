@@ -69,13 +69,13 @@ public class VideoFragment extends Fragment {
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                if(DisplaySingleTone.getInstance().getFirstType() == 1){
-                    try {
-                        playVideo();
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                }
+//                if(DisplaySingleTone.getInstance().getFirstType() == 1){
+//                    try {
+//                        playVideo();
+//                    } catch (Exception e) {
+//                        throw new RuntimeException(e);
+//                    }
+//                }
             }
         });
     }

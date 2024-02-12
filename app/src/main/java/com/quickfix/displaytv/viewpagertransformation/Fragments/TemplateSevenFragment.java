@@ -15,11 +15,11 @@ import com.quickfix.displaytv.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 
 public class TemplateSevenFragment extends Fragment {
-    private HashMap<String, Object> productMap;
-    private ArrayList<HashMap<String, Object>> pArrayList;
+    private Map<String, Object> productMap;
+    private ArrayList<Map<String, Object>> pArrayList;
     private ImageView img_cate_1_prod_1;
     private ImageView img_cate_1_prod_2;
     private ImageView img_cate_1_prod_3;
@@ -107,7 +107,7 @@ public class TemplateSevenFragment extends Fragment {
     private TextView txt_cate_4_price_3;
 
 
-    public TemplateSevenFragment(HashMap<String, Object> productMap) {
+    public TemplateSevenFragment(Map<String, Object> productMap) {
         this.productMap = productMap;
     }
 
@@ -199,10 +199,10 @@ public class TemplateSevenFragment extends Fragment {
         txt_cate_4_price_2 = v.findViewById(R.id.txt_cate_4_price_2);
         txt_cate_4_price_3 = v.findViewById(R.id.txt_cate_4_price_3);
 
-        ArrayList<HashMap<String, Object>> categories = (ArrayList<HashMap<String, Object>>) productMap.get("categories");
+        ArrayList<Map<String, Object>> categories = (ArrayList<Map<String, Object>>) productMap.get("categories");
         for (int i = 0; i < categories.size(); i++) {
             String categoryName = (String) categories.get(i).get("categoryName");
-            ArrayList<HashMap<String, String>> products = (ArrayList<HashMap<String, String>>) categories.get(i).get("products");
+            ArrayList<Map<String, String>> products = (ArrayList<Map<String, String>>) categories.get(i).get("products");
             for (int j = 0; j < products.size(); j++) {
                 String productDescription = products.get(j).get("productDescription");
                 String productImage = products.get(j).get("productImage");

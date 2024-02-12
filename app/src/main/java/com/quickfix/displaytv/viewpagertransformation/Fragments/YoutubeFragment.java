@@ -111,7 +111,7 @@ public class YoutubeFragment extends Fragment {
                 public void onStateChange(@NonNull YouTubePlayer youTubePlayer, @NonNull PlayerConstants.PlayerState playerState) {
                     if(playerState == PlayerConstants.PlayerState.ENDED){
                         if (DisplaySingleTone.getInstance().getFirstType() == 2) {
-                            playV();
+                          //  playV();
                         }
                     }
 

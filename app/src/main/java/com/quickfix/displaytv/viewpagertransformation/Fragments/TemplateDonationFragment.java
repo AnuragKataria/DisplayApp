@@ -18,13 +18,13 @@ import com.quickfix.displaytv.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 
 public class TemplateDonationFragment extends Fragment {
-    private HashMap<String, Object> productMap;
+    private Map<String, Object> productMap;
     private LinearLayout linearTop;
 
-    public TemplateDonationFragment(HashMap<String, Object> productMap) {
+    public TemplateDonationFragment(Map<String, Object> productMap) {
         this.productMap = productMap;
     }
 
@@ -44,7 +44,7 @@ public class TemplateDonationFragment extends Fragment {
     private void assignIds(View v) {
         linearTop = v.findViewById(R.id.linearTop);
         LayoutInflater vi = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        ArrayList<HashMap<String, String>> donaorsList = (ArrayList<HashMap<String, String>>) productMap.get("donars");
+        ArrayList<Map<String, String>> donaorsList = (ArrayList<Map<String, String>>) productMap.get("donars");
         for (int i = 0; i < donaorsList.size(); i++) {
             View inflaterView = vi.inflate(R.layout.layout_donation, null);
             TextView txt_sno = inflaterView.findViewById(R.id.txt_sno);

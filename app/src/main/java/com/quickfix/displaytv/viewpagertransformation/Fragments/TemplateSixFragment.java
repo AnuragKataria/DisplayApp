@@ -15,11 +15,12 @@ import com.quickfix.displaytv.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
+import java.util.Map;
 
 public class TemplateSixFragment extends Fragment {
-    private HashMap<String, Object> productMap;
-    private ArrayList<HashMap<String, Object>> pArrayList;
+    private Map<String, Object> productMap;
+    private ArrayList<Map<String, Object>> pArrayList;
     private ImageView img_cate_1_prod_1;
     private ImageView img_cate_1_prod_2;
     private ImageView img_cate_1_prod_3;
@@ -68,7 +69,7 @@ public class TemplateSixFragment extends Fragment {
     private TextView txt_extra;
 
 
-    public TemplateSixFragment(HashMap<String, Object> productMap) {
+    public TemplateSixFragment(Map<String, Object> productMap) {
         this.productMap = productMap;
     }
 
@@ -126,18 +127,18 @@ public class TemplateSixFragment extends Fragment {
         txt_cate_3 = v.findViewById(R.id.txt_cate_3);
         txt_extra = v.findViewById(R.id.txt_extra);
 
-        HashMap<String, Object> extras = (HashMap<String, Object>) productMap.get("extras");
+        Map<String, Object> extras = (Map<String, Object>) productMap.get("extras");
         String extrasName = (String) extras.get("categoryName");
-        ArrayList<HashMap<String, String>> Arrayproducts = (ArrayList<HashMap<String, String>>) extras.get("products");
+        ArrayList<Map<String, String>> Arrayproducts = (ArrayList<Map<String, String>>) extras.get("products");
         txt_cate_3.setText(extrasName);
 
         for (int i = 0; i < Arrayproducts.size(); i++) {
             txt_extra.setText(txt_extra.getText()+"\n"+Arrayproducts.get(i).get("productName"));
         }
-        ArrayList<HashMap<String, Object>> categories = (ArrayList<HashMap<String, Object>>) productMap.get("categories");
+        ArrayList<Map<String, Object>> categories = (ArrayList<Map<String, Object>>) productMap.get("categories");
         for (int i = 0; i < categories.size(); i++) {
             String categoryName = (String) categories.get(i).get("categoryName");
-            ArrayList<HashMap<String, String>> products = (ArrayList<HashMap<String, String>>) categories.get(i).get("products");
+            ArrayList<Map<String, String>> products = (ArrayList<Map<String, String>>) categories.get(i).get("products");
             for (int j = 0; j < products.size(); j++) {
                 String productDescription = products.get(j).get("productDescription");
                 String productImage = products.get(j).get("productImage");
