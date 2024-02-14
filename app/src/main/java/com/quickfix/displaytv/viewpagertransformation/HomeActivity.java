@@ -38,6 +38,7 @@ import com.quickfix.displaytv.viewpagertransformation.Fragments.FirstFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.ImageFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.MainFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.TemplateDonationFragment;
+import com.quickfix.displaytv.viewpagertransformation.Fragments.TemplateDynamicFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.TemplateFiveFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.TemplateFourFragment;
 import com.quickfix.displaytv.viewpagertransformation.Fragments.TemplateOneFragment;
@@ -205,7 +206,6 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 });
     }
-
     private void getDataFromServer() {
         displayApplication.getDatabaseReference().child("vendor").child(Utils.getVendorId(context)).child("restaurants").child(Utils.getUserId(context))
                 .child("screen")
@@ -326,7 +326,7 @@ public class HomeActivity extends AppCompatActivity {
                                 int days = getTimeStampDiff(timestamp);
                                 int expiryOn = Utils.getExpiryOn(context);
                                 if (days > expiryOn) {
-                                     showExpiryDialog();
+                                    showExpiryDialog();
                                 } else {
                                     if (expirydialog != null && expirydialog.isShowing()) {
                                         expirydialog.dismiss();
@@ -389,18 +389,10 @@ public class HomeActivity extends AppCompatActivity {
             try {
                 // Getting data for Template
                 String template = (String) dataObject.get("templateId");
-//            HashMap<String, Object> data = (HashMap<String, Object>) dataObject.get("data");
                 LinkedTreeMap<String, HashMap<String, Object>> productMap = (LinkedTreeMap<String, HashMap<String, Object>>) dataObject.get("data");
                 Gson gson = new Gson();
                 JsonObject jsonObject = gson.toJsonTree(productMap).getAsJsonObject();
                 HashMap<String, Object> data = new Gson().fromJson(jsonObject, HashMap.class);
-
-
-//            Object mapper = new ObjectMapper();
-//             HashMap<String, Object> data = ((ObjectMapper) mapper).readValue(
-//                    String.valueOf(jsonObject), new TypeReference<HashMap<String, HashMap<String, Object>>>() {
-//                    });
-
                 switch (template) {
                     case "-NpcT8nq7r7dNpJKMvlZ":
                         if (DisplaySingleTone.getInstance().getFirstType() == -1) {
@@ -414,64 +406,39 @@ public class HomeActivity extends AppCompatActivity {
                         }
                         pagerAdapter.addFragments(new TemplateSevenFragment(data));
                         break;
+                    case "-NqcLv5BFUhm8dYpvJZ7":
+                        if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                            DisplaySingleTone.getInstance().setFirstType(6);
+                        }
+                        pagerAdapter.addFragments(new TemplateThreeFragment(data));
+                        break;
+
+                    case "-NqcC7R3kvRnD6DGZ4Jg":
+                        if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                            DisplaySingleTone.getInstance().setFirstType(7);
+                        }
+                        pagerAdapter.addFragments(new TemplateOneFragment(data));
+                        break;
+
+                    case "-NqcLrpflCE0-2Fa7y_B":
+                        if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                            DisplaySingleTone.getInstance().setFirstType(8);
+                        }
+                        pagerAdapter.addFragments(new TemplateTwoFragment(data));
+                        break;
+
+                    case "dynamic-template":
+                        if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                            DisplaySingleTone.getInstance().setFirstType(9);
+                        }
+                        pagerAdapter.addFragments(new TemplateDynamicFragment(data));
+                        break;
+
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-        }
-    }
-
-    private void setDataOnView_(HashMap<String, Object> dataObject) throws IOException {
-        String name = (String) dataObject.get("name");
-        String selectedAnimation = (String) dataObject.get("selectedAnimation");
-        String time = (String) dataObject.get("time");
-
-        if (time == null) {
-            DELAY_MS = 60000;
-        } else if (time.contains("30")) {
-            DELAY_MS = 30000;
-        } else if (time.contains("1")) {
-            DELAY_MS = 60000;
-        } else if (time.contains("2")) {
-            DELAY_MS = 120000;
-        } else if (time.contains("3")) {
-            DELAY_MS = 180000;
-        } else if (time.contains("4")) {
-            DELAY_MS = 240000;
-        } else if (time.contains("5")) {
-            DELAY_MS = 300000;
-        } else {
-            DELAY_MS = 60000;
-        }
-        setAnimations(selectedAnimation);
-        String template = (String) dataObject.get("template");
-        boolean isPublished = (boolean) dataObject.get("isPublish");
-        if (isPublished) {
-            ArrayList<HashMap<String, String>> images = (ArrayList<HashMap<String, String>>) dataObject.get("styleImages");
-            LinkedTreeMap<String, HashMap<String, Object>> productMap = (LinkedTreeMap<String, HashMap<String, Object>>) dataObject.get("products");
-            Gson gson = new Gson();
-            JsonObject jsonObject = gson.toJsonTree(productMap).getAsJsonObject();
-            JsonArray jsonArray = gson.toJsonTree(images).getAsJsonArray();
-            Object mapper = new ObjectMapper();
-            HashMap<String, HashMap<String, Object>> data = ((ObjectMapper) mapper).readValue(
-                    String.valueOf(jsonObject), new TypeReference<HashMap<String, HashMap<String, Object>>>() {
-                    });
-            ArrayList<HashMap<String, String>> img = ((ObjectMapper) mapper).readValue(
-                    String.valueOf(jsonArray), new TypeReference<ArrayList<HashMap<String, String>>>() {
-                    });
-            Log.i("Product map ", data.toString());
-            switch (template) {
-                case "-NV0dvLRAz9V0fKXQtqg":
-                    pagerAdapter.addFragments(new TemplateOneFragment(data, img, name));
-                    break;
-                case "-NWi4bcsWu6BjB0kCaWd":
-                    pagerAdapter.addFragments(new TemplateTwoFragment(data, img, name));
-                    break;
-                case "-NWi380WUajWU9pXrCeC":
-                    pagerAdapter.addFragments(new TemplateThreeFragment(data, img, name));
-                    break;
-            }
         }
     }
 
@@ -580,6 +547,33 @@ public class HomeActivity extends AppCompatActivity {
                         DisplaySingleTone.getInstance().setFirstType(4);
                     }
                     pagerAdapter.addFragments(new TemplateSevenFragment(data));
+                    break;
+
+                case "-NqcLv5BFUhm8dYpvJZ7":
+                    if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                        DisplaySingleTone.getInstance().setFirstType(6);
+                    }
+                    pagerAdapter.addFragments(new TemplateThreeFragment(data));
+                    break;
+
+                case "-NqcC7R3kvRnD6DGZ4Jg":
+                    if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                        DisplaySingleTone.getInstance().setFirstType(7);
+                    }
+                    pagerAdapter.addFragments(new TemplateOneFragment(data));
+                    break;
+
+                case "-NqcLrpflCE0-2Fa7y_B":
+                    if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                        DisplaySingleTone.getInstance().setFirstType(8);
+                    }
+                    pagerAdapter.addFragments(new TemplateTwoFragment(data));
+                    break;
+                case "dynamic-template":
+                    if (DisplaySingleTone.getInstance().getFirstType() == -1) {
+                        DisplaySingleTone.getInstance().setFirstType(9);
+                    }
+                    pagerAdapter.addFragments(new TemplateDynamicFragment(data));
                     break;
             }
         }

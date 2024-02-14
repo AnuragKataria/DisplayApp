@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <com.quickfix.displaytv.common_ui.TextwithFontRegular
+        android:id="@+id/txt_cate_1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/yellow"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="20dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleViewStagged"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -29,6 +29,8 @@ import com.quickfix.displaytv.viewpagertransformation.HomeActivity;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CodeActivateActivity extends AppCompatActivity implements View.OnClickListener {
@@ -82,7 +84,6 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
                     if (snapshot.getValue() != null) {
-
                         HashMap<String, Object> data = (HashMap<String, Object>) snapshot.getValue();
                         boolean isActivated = (boolean) data.get("isActivated");
                         String deviceID = (String) data.get("deviceId");
@@ -105,11 +106,9 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
                                 expireDays = 30000;
                             } else {
                                 expireDays = 7;
-
                             }
                         } else {
                             expireDays = 7;
-
                         }
                         Utils.setExpiryOn(context, expireDays);
 
@@ -123,7 +122,8 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
 //                        startActivity(new Intent(context, HomeActivity.class));
 //                        finish();
                         if (!deviceID.equals("N/A")) {
-                            if (deviceID.equals(Utils.getDeviceID(context))) {
+                            ArrayList<String> deviceList = (ArrayList<String>) data.get("deviceList");
+                            if (deviceList.contains(Utils.getDeviceID(context))) {
                                 String uID = (String) data.get("assignedTo");
                                 String vID = (String) data.get("createdBy");
                                 Utils.setUserId(context, uID);
@@ -134,8 +134,46 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
                                 startActivity(new Intent(context, HomeActivity.class));
                                 finish();
                             } else {
-                                Toast.makeText(context, "This License has already been used in another Device", Toast.LENGTH_SHORT).show();
+                                if (deviceList.size() == 50) {
+                                    Toast.makeText(context, "License has already been used in 50 Devices", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    deviceList.add(Utils.getDeviceID(context));
+                                    String uID = (String) data.get("assignedTo");
+                                    String vID = (String) data.get("createdBy");
+                                    Utils.setUserId(context, uID);
+                                    Utils.setVendorId(context, vID);
+                                    HashMap<String, Object> a = new HashMap<>();
+                                    a.put("deviceId", "A");
+                                    a.put("deviceList", deviceList);
+                                    a.put("isActivated", true);
+                                    a.put("licenseKey", licenceKey);
+                                    a.put("timeOfActivation", System.currentTimeMillis());
+                                    Utils.setLicenseKey(context, licenceKey);
+                                    displayApplication.getDatabaseReference().child("screens").child(licenceKey).updateChildren(a);
+                                    displayApplication.getDatabaseReference().child("vendor").child(Utils.getVendorId(context)).child("restaurants").child(Utils.getUserId(context))
+                                            .child("screen")
+                                            .child(Utils.getLicenseKey(context)).updateChildren(a);
+                                    Toast.makeText(context, "Screen Activated Successfully", Toast.LENGTH_SHORT).show();
+                                    Utils.setScreenActivated(context, true);
+                                    startActivity(new Intent(context, HomeActivity.class));
+                                    finish();
+                                }
+
                             }
+
+//                            if (deviceID.equals(Utils.getDeviceID(context))) {
+//                                String uID = (String) data.get("assignedTo");
+//                                String vID = (String) data.get("createdBy");
+//                                Utils.setUserId(context, uID);
+//                                Utils.setVendorId(context, vID);
+//                                Utils.setLicenseKey(context, licenceKey);
+//                                Toast.makeText(context, "Screen Activated Successfully", Toast.LENGTH_SHORT).show();
+//                                Utils.setScreenActivated(context, true);
+//                                startActivity(new Intent(context, HomeActivity.class));
+//                                finish();
+//                            } else {
+//                                Toast.makeText(context, "This License has already been used in another Device", Toast.LENGTH_SHORT).show();
+//                            }
                         } else {
                             if (isActivated) {
                                 Toast.makeText(context, "This License has already been used", Toast.LENGTH_SHORT).show();
@@ -145,7 +183,10 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
                                 Utils.setUserId(context, uID);
                                 Utils.setVendorId(context, vID);
                                 HashMap<String, Object> a = new HashMap<>();
-                                a.put("deviceId", Utils.getDeviceID(context));
+                                ArrayList<String> deviceArrayList = new ArrayList<>();
+                                deviceArrayList.add(Utils.getDeviceID(context));
+                                a.put("deviceId", "A");
+                                a.put("deviceList", deviceArrayList);
                                 a.put("isActivated", true);
                                 a.put("licenseKey", licenceKey);
                                 a.put("timeOfActivation", System.currentTimeMillis());
