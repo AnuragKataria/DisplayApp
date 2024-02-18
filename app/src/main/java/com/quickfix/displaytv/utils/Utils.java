@@ -183,4 +183,19 @@ public class Utils {
 
     }
 
+    public static int getPageSize(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        int size = preferences.getInt("PAGE_SIZE", 0);
+        return size;
+    }
+
+    public static void setPageSize(Context context, int size) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("PAGE_SIZE", size);
+        editor.apply();
+
+    }
+
+
 }

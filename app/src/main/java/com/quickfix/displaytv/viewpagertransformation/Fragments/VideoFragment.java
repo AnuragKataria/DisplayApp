@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.quickfix.displaytv.R;
 import com.quickfix.displaytv.global.DisplaySingleTone;
+import com.quickfix.displaytv.utils.Utils;
 
 
 public class VideoFragment extends Fragment {
@@ -26,19 +27,17 @@ public class VideoFragment extends Fragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-
-        if(isVisibleToUser){
+        if (isVisibleToUser) {
             try {
                 playVideo();
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
-        }else{
-            if(videoView!=null){
+        } else {
+            if (videoView != null) {
                 videoView.pause();
                 videoView.stopPlayback();
             }
-
         }
     }
 
@@ -47,14 +46,14 @@ public class VideoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_video, container, false);
-      assignIds(v);
+        assignIds(v);
         return v;
-
     }
+
     private void assignIds(View v) {
         try {
             videoView = v.findViewById(R.id.videoView);
-            if(DisplaySingleTone.getInstance().getFirstType() == 1){
+            if (DisplaySingleTone.getInstance().getFirstType() == 1) {
                 playVideo();
             }
         } catch (Exception e) {
@@ -63,20 +62,25 @@ public class VideoFragment extends Fragment {
 
     }
 
-    private void playVideo(){
-        videoView.setVideoURI(Uri.parse(video));
-        videoView.start();
-        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-//                if(DisplaySingleTone.getInstance().getFirstType() == 1){
-//                    try {
-//                        playVideo();
-//                    } catch (Exception e) {
-//                        throw new RuntimeException(e);
-//                    }
-//                }
-            }
-        });
+    private void playVideo() {
+        if (videoView != null) {
+            videoView.setVideoURI(Uri.parse(video));
+            videoView.start();
+            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    if (DisplaySingleTone.getInstance().getFirstType() == 1) {
+                        try {
+                            if (Utils.getPageSize(getActivity()) == 1) {
+                                playVideo();
+                            }
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }
+            });
+        }
+
     }
 }

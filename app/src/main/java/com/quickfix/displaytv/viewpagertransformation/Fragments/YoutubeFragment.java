@@ -19,10 +19,13 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.options.IFram
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 import com.quickfix.displaytv.R;
 import com.quickfix.displaytv.global.DisplaySingleTone;
+import com.quickfix.displaytv.utils.Utils;
 import com.squareup.picasso.Picasso;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import okhttp3.internal.Util;
 
 
 public class YoutubeFragment extends Fragment {
@@ -109,9 +112,12 @@ public class YoutubeFragment extends Fragment {
 
                 @Override
                 public void onStateChange(@NonNull YouTubePlayer youTubePlayer, @NonNull PlayerConstants.PlayerState playerState) {
-                    if(playerState == PlayerConstants.PlayerState.ENDED){
+                    if (playerState == PlayerConstants.PlayerState.ENDED) {
                         if (DisplaySingleTone.getInstance().getFirstType() == 2) {
-                          //  playV();
+                            if (Utils.getPageSize(getActivity()) == 1) {
+                                playV();
+                            }
+
                         }
                     }
 

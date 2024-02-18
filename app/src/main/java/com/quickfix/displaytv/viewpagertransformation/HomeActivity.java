@@ -206,6 +206,7 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 });
     }
+
     private void getDataFromServer() {
         displayApplication.getDatabaseReference().child("vendor").child(Utils.getVendorId(context)).child("restaurants").child(Utils.getUserId(context))
                 .child("screen")
@@ -264,6 +265,8 @@ public class HomeActivity extends AppCompatActivity {
                                     dataArrayList.add(dataObject);
                                     setDataOnViewFirst(dataObject);
                                 }
+                                int size = dataArrayList.size();
+                                Utils.setPageSize(context, size);
                                 Utils.saveData(context, dataArrayList);
                                 viewPager.setAdapter(pagerAdapter);
                                 myhandler.postDelayed(myrunnable = new Runnable() {
@@ -500,6 +503,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setDataOnViewFirst(HashMap<String, Object> dataObject) {
+
         String type = (String) dataObject.get("mediaType");
         MediaType mediaType = MediaType.valueOf(type);
         if (mediaType != MediaType.Template) {

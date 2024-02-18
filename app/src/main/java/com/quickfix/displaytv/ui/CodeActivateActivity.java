@@ -86,6 +86,7 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
                     if (snapshot.getValue() != null) {
                         HashMap<String, Object> data = (HashMap<String, Object>) snapshot.getValue();
                         boolean isActivated = (boolean) data.get("isActivated");
+                        long maxScreens = (Long) data.get("maxScreens");
                         String deviceID = (String) data.get("deviceId");
                         String expiryOn = (String) data.get("expiryOn");
                         int expireDays = 0;
@@ -134,7 +135,7 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
                                 startActivity(new Intent(context, HomeActivity.class));
                                 finish();
                             } else {
-                                if (deviceList.size() == 50) {
+                                if (deviceList.size() == maxScreens) {
                                     Toast.makeText(context, "License has already been used in 50 Devices", Toast.LENGTH_SHORT).show();
                                 } else {
                                     deviceList.add(Utils.getDeviceID(context));

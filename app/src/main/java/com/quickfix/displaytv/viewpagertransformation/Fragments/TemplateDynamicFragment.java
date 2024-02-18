@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -43,13 +44,68 @@ public class TemplateDynamicFragment extends Fragment {
     private void assignIds(View v) {
         txt_cate_1 = v.findViewById(R.id.txt_cate_1);
         recyclerView = v.findViewById(R.id.recycleViewStagged);
-        RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(5, StaggeredGridLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(layoutManager);
         ArrayList<Map<String, Object>> categories = (ArrayList<Map<String, Object>>) productMap.get("categories");
         for (int i = 0; i < categories.size(); i++) {
             String categoryName = (String) categories.get(i).get("categoryName");
             ArrayList<Map<String, String>> products = (ArrayList<Map<String, String>>) categories.get(i).get("products");
             txt_cate_1.setText(categoryName);
+int spanCount = 1;
+            switch (products.size()){
+                case 1:
+                    spanCount= 1;
+                    break;
+                case 2:
+                    spanCount= 2;
+                    break;
+                case 3:
+                    spanCount= 3;
+                    break;
+                case 4:
+                    spanCount= 2;
+                    break;
+                case 5:
+                    spanCount= 2;
+                    break;
+                case 6:
+                    spanCount= 3;
+                    break;
+                case 7:
+                    spanCount= 3;
+                    break;
+                case 8:
+                    spanCount= 4;
+                    break;
+                case 9:
+                    spanCount= 3;
+                    break;
+                case 10:
+                    spanCount= 4;
+                    break;
+                case 11:
+                    spanCount= 4;
+                    break;
+                case 12:
+                    spanCount= 4;
+                    break;
+                case 13:
+                    spanCount= 5;
+                    break;
+                case 14:
+                    spanCount= 5;
+                    break;
+                case 15:
+                    spanCount= 5;
+                    break;
+                default:
+                    spanCount= 1;
+                    break;
+            }
+            StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL);
+
+            //layoutManager.setSpanCount(spanCount);
+            recyclerView.setLayoutManager(layoutManager);
+
+
             // setting adapter here
             StaggeredAdapter staggeredAdapter = new StaggeredAdapter(getActivity() , products);
             recyclerView.setAdapter(staggeredAdapter);
