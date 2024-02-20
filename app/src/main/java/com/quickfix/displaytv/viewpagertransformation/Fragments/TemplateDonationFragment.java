@@ -1,6 +1,7 @@
 package com.quickfix.displaytv.viewpagertransformation.Fragments;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -47,9 +48,17 @@ public class TemplateDonationFragment extends Fragment {
         ArrayList<Map<String, String>> donaorsList = (ArrayList<Map<String, String>>) productMap.get("donars");
         for (int i = 0; i < donaorsList.size(); i++) {
             View inflaterView = vi.inflate(R.layout.layout_donation, null);
+            LinearLayout linearLayout = inflaterView.findViewById(R.id.linearLayout);
+            if (i % 2 == 0) {
+                linearLayout.setBackgroundColor(Color.parseColor("#BDBDBD"));
+            }else{
+                linearLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+            }
             TextView txt_sno = inflaterView.findViewById(R.id.txt_sno);
             TextView txt_fname = inflaterView.findViewById(R.id.txt_fname);
             TextView txt_mobile_number = inflaterView.findViewById(R.id.txt_mobile_number);
+            TextView txt_note = inflaterView.findViewById(R.id.txt_note);
             TextView txt_jan = inflaterView.findViewById(R.id.txt_jan);
             TextView txt_feb = inflaterView.findViewById(R.id.txt_feb);
             TextView txt_mar = inflaterView.findViewById(R.id.txt_mar);
@@ -77,6 +86,7 @@ public class TemplateDonationFragment extends Fragment {
             txt_oct.setText(donaorsList.get(i).get("oct"));
             txt_nov.setText(donaorsList.get(i).get("nov"));
             txt_dec.setText(donaorsList.get(i).get("dec"));
+            txt_note.setText(donaorsList.get(i).get("note"));
             linearTop.addView(inflaterView);
         }
     }

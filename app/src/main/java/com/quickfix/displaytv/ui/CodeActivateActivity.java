@@ -1,8 +1,10 @@
 package com.quickfix.displaytv.ui;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -10,6 +12,7 @@ import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,6 +54,7 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
         edCode = findViewById(R.id.edCode);
         title = findViewById(R.id.title);
         btnActivate.setOnClickListener(this);
+        showAgreementDialog();
     }
 
 
@@ -223,6 +227,29 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
 
             }
         });
+
+    }
+
+
+    private void showAgreementDialog() {
+        Dialog dialog = new Dialog(context);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialog_agreement);
+        CheckBox checkBoxAgreement = dialog.findViewById(R.id.checkBoxAgreement);
+        Button btnProceed = dialog.findViewById(R.id.btnProceed);
+        btnProceed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkBoxAgreement.isChecked()) {
+                    dialog.dismiss();
+                } else {
+                    Toast.makeText(context, "Please Accept Agreement", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(context.getColor(android.R.color.transparent)));
+
 
     }
 

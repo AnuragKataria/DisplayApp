@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,10 +22,13 @@ import java.util.Map;
 public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.ViewHolder> {
     private Context context;
     private ArrayList<Map<String, String>> pArrayList;
-
-    public StaggeredAdapter(Context context, ArrayList<Map<String, String>> pArrayList) {
+    int height;
+    int width;
+    public StaggeredAdapter(Context context, ArrayList<Map<String, String>> pArrayList , int height, int width) {
         this.context = context;
         this.pArrayList = pArrayList;
+        this.height = height;
+        this.width = width;
 
     }
 
@@ -40,10 +44,34 @@ public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         try {
             holder.txtName.setText( pArrayList.get(position).get("productName"));
-            holder.txtPrice.setText( pArrayList.get(position).get("productPrice")+" $");
+            double p = Double.parseDouble(pArrayList.get(position).get("productPrice"));
+            if(p == 0){
+                holder.txtPrice.setText("");
+            }else{
+                holder.txtPrice.setText( pArrayList.get(position).get("productPrice")+" $");
+            }
             holder.txtDesc.setText( pArrayList.get(position).get("productDescription"));
             String image =  pArrayList.get(position).get("productImage");
             Picasso.get().load(image).into(holder.imgProduct);
+            RelativeLayout.LayoutParams layoutParams;
+            switch (getItemCount()){
+                case 1:
+                    layoutParams = new RelativeLayout.LayoutParams(width, height-35);
+                    holder.imgProduct.setLayoutParams(layoutParams);
+                    break;
+                case 2:
+                    layoutParams = new RelativeLayout.LayoutParams(width/2, height-35);
+                    holder.imgProduct.setLayoutParams(layoutParams);
+                    break;
+                case 3:
+                    layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height/2-35);
+                    holder.imgProduct.setLayoutParams(layoutParams);
+                case 4:
+                    layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height/2-35);
+                    holder.imgProduct.setLayoutParams(layoutParams);
+                    break;
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

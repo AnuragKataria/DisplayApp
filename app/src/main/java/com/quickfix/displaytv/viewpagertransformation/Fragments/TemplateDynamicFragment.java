@@ -1,6 +1,7 @@
 package com.quickfix.displaytv.viewpagertransformation.Fragments;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,9 +28,6 @@ public class TemplateDynamicFragment extends Fragment {
     RecyclerView recyclerView;
 
 
-
-
-
     public TemplateDynamicFragment(Map<String, Object> productMap) {
         this.productMap = productMap;
     }
@@ -49,65 +47,33 @@ public class TemplateDynamicFragment extends Fragment {
             String categoryName = (String) categories.get(i).get("categoryName");
             ArrayList<Map<String, String>> products = (ArrayList<Map<String, String>>) categories.get(i).get("products");
             txt_cate_1.setText(categoryName);
-int spanCount = 1;
+
+            int spanCount =0;
             switch (products.size()){
                 case 1:
-                    spanCount= 1;
+                    spanCount = 1;
                     break;
                 case 2:
-                    spanCount= 2;
+                    spanCount = 2;
                     break;
                 case 3:
-                    spanCount= 3;
+                    spanCount = 2;
                     break;
                 case 4:
-                    spanCount= 2;
-                    break;
-                case 5:
-                    spanCount= 2;
-                    break;
-                case 6:
-                    spanCount= 3;
-                    break;
-                case 7:
-                    spanCount= 3;
-                    break;
-                case 8:
-                    spanCount= 4;
-                    break;
-                case 9:
-                    spanCount= 3;
-                    break;
-                case 10:
-                    spanCount= 4;
-                    break;
-                case 11:
-                    spanCount= 4;
-                    break;
-                case 12:
-                    spanCount= 4;
-                    break;
-                case 13:
-                    spanCount= 5;
-                    break;
-                case 14:
-                    spanCount= 5;
-                    break;
-                case 15:
-                    spanCount= 5;
-                    break;
-                default:
-                    spanCount= 1;
+                    spanCount = 2;
                     break;
             }
-            StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL);
-
-            //layoutManager.setSpanCount(spanCount);
+            GridLayoutManager layoutManager = new GridLayoutManager(getActivity() , spanCount);
             recyclerView.setLayoutManager(layoutManager);
+
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            int height = displayMetrics.heightPixels;
+            int width = displayMetrics.widthPixels;
 
 
             // setting adapter here
-            StaggeredAdapter staggeredAdapter = new StaggeredAdapter(getActivity() , products);
+                StaggeredAdapter staggeredAdapter = new StaggeredAdapter(getActivity(), products, height , width);
             recyclerView.setAdapter(staggeredAdapter);
 
         }

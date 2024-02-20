@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="600dp">
+
+
+        <LinearLayout
+            android:id="@+id/linearTop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/linearBottom"
+            android:orientation="vertical">
+
+            <com.quickfix.displaytv.common_ui.TextwithFont
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.4"
+                android:text="Agreement"
+                android:textColor="#000000"
+                android:textSize="30dp" />
+
+            <com.quickfix.displaytv.common_ui.TextwithFont
+                android:id="@+id/txt_agreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.4"
+                android:text="You will have to follow below instructions to proceed further"
+                android:textColor="#000000"
+                android:textSize="23dp" />
+
+            <com.quickfix.displaytv.common_ui.TextwithFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.4"
+                android:text="1. Content reflected on the Display APP should be with your rights  "
+                android:textColor="#000000"
+                android:textSize="20dp" />
+
+            <com.quickfix.displaytv.common_ui.TextwithFont
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.4"
+                android:text="2. In case of copyright infringement you will liable for consequences"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <CheckBox
+                android:id="@+id/checkBoxAgreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:text="Accept Agreement to proceed"
+
+                android:textSize="20dp" />
+
+
+            <com.quickfix.displaytv.common_ui.ButtonwithFont
+                android:id="@+id/btnProceed"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/btn_focused"
+                android:text="Proceed"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -244,6 +244,12 @@ public class HomeActivity extends AppCompatActivity {
                                         default:
                                             if (time == null) {
                                                 DELAY_MS = 30000;
+                                            } else if (time.contains("5 sec")) {
+                                                DELAY_MS = 5000;
+                                            } else if (time.contains("10")) {
+                                                DELAY_MS = 10000;
+                                            } else if (time.contains("15")) {
+                                                DELAY_MS = 15000;
                                             } else if (time.contains("30")) {
                                                 DELAY_MS = 30000;
                                             } else if (time.contains("1")) {
@@ -693,6 +699,12 @@ public class HomeActivity extends AppCompatActivity {
                         default:
                             if (time == null) {
                                 DELAY_MS = 30000;
+                            } else if (time.contains("5 sec")) {
+                                DELAY_MS = 5000;
+                            } else if (time.contains("10")) {
+                                DELAY_MS = 10000;
+                            } else if (time.contains("15")) {
+                                DELAY_MS = 15000;
                             } else if (time.contains("30")) {
                                 DELAY_MS = 30000;
                             } else if (time.contains("1")) {

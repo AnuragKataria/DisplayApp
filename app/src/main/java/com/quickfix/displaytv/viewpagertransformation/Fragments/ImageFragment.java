@@ -34,22 +34,17 @@ public class ImageFragment extends Fragment {
             throw new RuntimeException(e);
         }
         return v;
-
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
     }
-
 
     private void assignIds(View v) {
         imageView = v.findViewById(R.id.imageView);
         if (image != null) {
             Picasso.get().load(image).into(imageView);
         }
-
     }
 }
