@@ -1,169 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
+
     <LinearLayout
+        android:id="@+id/l"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:id="@+id/l"
-        android:padding="5dp"
         android:background="#EfEDED"
         android:orientation="horizontal"
+        android:padding="5dp"
         android:weightSum="17">
 
         <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
-            android:text="S.No"
             android:id="@+id/txt_sno"
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:gravity="center"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight=".6" />
+            android:layout_weight=".6"
+            android:gravity="center"
+            android:text="S.No"
+            android:textColor="#000000"
+            android:textSize="16dp" />
 
         <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
-            android:gravity="center"
             android:id="@+id/txt_fname"
-            android:textColor="#000000"
-            android:text="Full Name"
-            android:textSize="16dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2" />
-
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="Full Name"
+            android:textColor="#000000"
+            android:textSize="16dp" />
 
 
         <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
             android:id="@+id/txt_mobile_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.4"
             android:gravity="center"
-            android:textSize="16dp"
             android:text="Mobile"
             android:textColor="#000000"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.4" />
+            android:textSize="16dp" />
+
         <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
             android:id="@+id/txt_note"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
-            android:textSize="16dp"
             android:text="Note"
             android:textColor="#000000"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:textSize="16dp" />
 
         <com.quickfix.displaytv.common_ui.TextViewBold
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="Jan"
-            android:gravity="center"
             android:textColor="#000000"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
-            android:text="Feb"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
-            android:text="Mar"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
-            android:text="Apr"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
-            android:text="May"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
-            android:text="Jun"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
-            android:text="Jul"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
-            android:text="Aug"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
-            android:text="Sept"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
-            android:text="Oct"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
-            android:text="Nov"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        <com.quickfix.displaytv.common_ui.TextViewBold
-            android:layout_width="0dp"
-            android:text="Dec"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="16dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:textSize="16dp" />
 
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Feb"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Mar"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Apr"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="May"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Jun"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Jul"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Aug"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Sept"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Oct"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Nov"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Dec"
+            android:textColor="#000000"
+            android:textSize="16dp" />
 
 
     </LinearLayout>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_below="@+id/l"
-    android:id="@+id/linearTop"
-    android:layout_height="wrap_content">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleViewDonation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/l"
+        tools:listitem="@layout/layout_donation" />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/linearTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/l"
+        android:orientation="vertical">
 
 
-</LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
 
 
