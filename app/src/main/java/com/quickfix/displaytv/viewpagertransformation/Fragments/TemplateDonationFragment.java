@@ -19,6 +19,7 @@ import com.quickfix.displaytv.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Map;
 
 public class TemplateDonationFragment extends Fragment {
@@ -39,13 +40,20 @@ public class TemplateDonationFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        assignIds(view);
+        try {
+            assignIds(view);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private void assignIds(View v) {
+    private void assignIds(View v) throws Exception {
         linearTop = v.findViewById(R.id.linearTop);
         LayoutInflater vi = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        ArrayList<Map<String, String>> donaorsList = (ArrayList<Map<String, String>>) productMap.get("donars");
+        Map<String, Object> donaorsMap = (Map<String, Object>) productMap.get("donars");
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        ArrayList<Map<String, String>> donaorsList = (ArrayList<Map<String, String>>) donaorsMap.get(year+"");
         for (int i = 0; i < donaorsList.size(); i++) {
             View inflaterView = vi.inflate(R.layout.layout_donation, null);
             LinearLayout linearLayout = inflaterView.findViewById(R.id.linearLayout);

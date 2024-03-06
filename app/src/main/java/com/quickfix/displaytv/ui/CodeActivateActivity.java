@@ -90,7 +90,7 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
                     if (snapshot.getValue() != null) {
                         HashMap<String, Object> data = (HashMap<String, Object>) snapshot.getValue();
                         boolean isActivated = (boolean) data.get("isActivated");
-                        long maxScreens = (Long) data.get("maxScreens");
+                        long maxScreens = (Long) data.get("maxScreen");
                         String deviceID = (String) data.get("deviceId");
                         String expiryOn = (String) data.get("expiryOn");
                         int expireDays = 0;
