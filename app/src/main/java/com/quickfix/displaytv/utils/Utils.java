@@ -143,6 +143,23 @@ public class Utils {
     }
 
 
+
+    public static String getUserName(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        String uname = preferences.getString("uname", null);
+        return uname;
+    }
+
+    public static void setUserName(Context context, String uname) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("uname", uname);
+        editor.apply();
+
+    }
+
+
+
     public static void saveData(Context context, ArrayList<HashMap<String, Object>> arrayList) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         Gson gson = new Gson();

@@ -63,6 +63,7 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHo
             holder.txt_nov.setText(donaorsList.get(position).get("nov"));
             holder.txt_dec.setText(donaorsList.get(position).get("dec"));
             holder.txt_note.setText(donaorsList.get(position).get("note"));
+            holder.txt_pa.setText(donaorsList.get(position).get("promiseAmount"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -92,6 +93,7 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHo
         TextView txt_oct;
         TextView txt_nov;
         TextView txt_dec;
+        TextView txt_pa;
         LinearLayout linearLayout;
 
         public ViewHolder(View itemView) {
@@ -112,6 +114,7 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHo
             txt_oct = itemView.findViewById(R.id.txt_oct);
             txt_nov = itemView.findViewById(R.id.txt_nov);
             txt_dec = itemView.findViewById(R.id.txt_dec);
+            txt_pa = itemView.findViewById(R.id.txt_pa);
             linearLayout = itemView.findViewById(R.id.linearLayout);
 
         }

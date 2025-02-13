@@ -36,7 +36,7 @@ public class DisplayApplication extends Application {
 
 
         ProcessLifecycleOwner.get().getLifecycle().addObserver(new AppLifecycleListener(this));
-        Thread.setDefaultUncaughtExceptionHandler(onRuntimeError);
+        //Thread.setDefaultUncaughtExceptionHandler(onRuntimeError);
 
 
     }

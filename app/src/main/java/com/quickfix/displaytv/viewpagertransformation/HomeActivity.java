@@ -392,7 +392,8 @@ public class HomeActivity extends AppCompatActivity {
                         DisplaySingleTone.getInstance().setFirstType(5);
                     }
                     HashMap<String, Object> data = (HashMap<String, Object>) dataObject.get("data");
-                    pagerAdapter.addFragments(new TemplateDonationFragment(data));
+                    String ticker = (String) dataObject.get("ticker");
+                    pagerAdapter.addFragments(new TemplateDonationFragment(data , ticker));
                     break;
             }
         } else {
@@ -539,7 +540,8 @@ public class HomeActivity extends AppCompatActivity {
                         DisplaySingleTone.getInstance().setFirstType(5);
                     }
                     HashMap<String, Object> data = (HashMap<String, Object>) dataObject.get("data");
-                    pagerAdapter.addFragments(new TemplateDonationFragment(data));
+                    String ticker = (String) dataObject.get("ticker");
+                    pagerAdapter.addFragments(new TemplateDonationFragment(data, ticker));
                     break;
             }
         } else {

@@ -131,6 +131,8 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
                             if (deviceList.contains(Utils.getDeviceID(context))) {
                                 String uID = (String) data.get("assignedTo");
                                 String vID = (String) data.get("createdBy");
+                                String name = (String) data.get("name");
+                                Utils.setUserName(context, name);
                                 Utils.setUserId(context, uID);
                                 Utils.setVendorId(context, vID);
                                 Utils.setLicenseKey(context, licenceKey);
@@ -145,6 +147,8 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
                                     deviceList.add(Utils.getDeviceID(context));
                                     String uID = (String) data.get("assignedTo");
                                     String vID = (String) data.get("createdBy");
+                                    String name = (String) data.get("name");
+                                    Utils.setUserName(context, name);
                                     Utils.setUserId(context, uID);
                                     Utils.setVendorId(context, vID);
                                     HashMap<String, Object> a = new HashMap<>();
@@ -185,6 +189,8 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
                             } else {
                                 String uID = (String) data.get("assignedTo");
                                 String vID = (String) data.get("createdBy");
+                                String name = (String) data.get("name");
+                                Utils.setUserName(context, name);
                                 Utils.setUserId(context, uID);
                                 Utils.setVendorId(context, vID);
                                 HashMap<String, Object> a = new HashMap<>();

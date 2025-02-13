@@ -6,20 +6,71 @@
     android:background="@color/white">
 
     <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:id="@+id/txt_masjid_name"
+            android:layout_width="200dp"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:paddingLeft="20dp"
+            android:text="Mobile"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:id="@+id/txt_year"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:gravity="end"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/settings"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:background="@drawable/setting_focused"
+                android:src="@mipmap/setting" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/l"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/linear"
         android:layout_margin="3dp"
         android:background="#EfEDED"
         android:orientation="horizontal"
         android:padding="5dp"
-        android:weightSum="17">
+
+        android:weightSum="18.5">
 
         <com.quickfix.displaytv.common_ui.TextViewBold
             android:id="@+id/txt_sno"
-            android:layout_width="0dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_weight=".6"
             android:gravity="center"
             android:text="S.No"
             android:textColor="#000000"
@@ -29,8 +80,9 @@
             android:id="@+id/txt_fname"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="center"
+            android:layout_weight="3"
+            android:gravity="center|left"
+            android:paddingLeft="5dp"
             android:text="Full Name"
             android:textColor="#000000"
             android:textSize="16dp" />
@@ -40,7 +92,7 @@
             android:id="@+id/txt_mobile_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.4"
+            android:layout_weight="1.5"
             android:gravity="center"
             android:text="Mobile"
             android:textColor="#000000"
@@ -61,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Jan"
+            android:text="P.A"
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -70,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Feb"
+            android:text="Jan $"
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -79,7 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Mar"
+            android:text="Feb $"
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -88,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Apr"
+            android:text="Mar $"
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -97,7 +149,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="May"
+            android:text="Apr $"
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -106,7 +158,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Jun"
+            android:text="May $"
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -115,7 +167,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Jul"
+            android:text="Jun $"
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -124,7 +176,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Aug"
+            android:text="Jul $"
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -133,7 +185,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Sept"
+            android:text="Aug $"
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -142,7 +194,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Oct"
+            android:text="Sept $"
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -151,7 +203,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Nov"
+            android:text="Oct $"
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -160,7 +212,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Dec"
+            android:text="Nov $"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <com.quickfix.displaytv.common_ui.TextViewBold
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Dec $"
             android:textColor="#000000"
             android:textSize="16dp" />
 
@@ -170,19 +231,44 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewDonation"
+        android:layout_above="@+id/linearTicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/l"
         tools:listitem="@layout/layout_donation" />
 
     <LinearLayout
-        android:visibility="gone"
         android:id="@+id/linearTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/l"
-        android:orientation="vertical">
+        android:visibility="gone"
+        android:layout_above="@+id/linearTicker"
+        android:orientation="vertical"
+        >
+    </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/linearTicker"
+        android:background="@color/search_opaque"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="60dp">
+        <TextView
+            android:id="@+id/marqueeText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:scrollHorizontally="true"
+            android:padding="10dp"/>
 
     </LinearLayout>
 </RelativeLayout>
