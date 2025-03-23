@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#fec93d</color>
     <color name="colorAccent">#fec93d</color>
     <color name="colorIconBg">#fec93d</color>
+    <color name="label_green">#145c34</color>
 
 
     <color name="background_gradient_start">#000000</color>
@@ -21,7 +22,12 @@
     <color name="template_6_desc">#45607D</color>
     <color name="template_6_extras">#70090C</color>
     <color name="gray">#FC7A7979</color>
+    <color name="blue">#0000D0</color>
+    <color name="dark_gray">#FF55585A</color>
+    <color name="border_gray">#525252</color>
+    <color name="greencolor">#7bb924</color>
 
+    <color name="black">#000000</color>
 
     <color name="trans">#92090909</color>
     <color name="light_cream">#FBF2E9</color>

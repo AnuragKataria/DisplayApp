@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +26,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.quickfix.displaytv.R;
 import com.quickfix.displaytv.adapters.DonationAdapter;
 import com.quickfix.displaytv.utils.Utils;
+import com.quickfix.displaytv.viewpagertransformation.HomeActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
+import java.util.Objects;
 
 public class TemplateDonationFragment extends Fragment {
     private Map<String, Object> productMap;
@@ -38,7 +41,7 @@ public class TemplateDonationFragment extends Fragment {
     private TextView txt_year;
     private TextView txt_masjid_name;
     private TextView marqueeText;
-    private ImageView imgSettings;
+    private static ImageView imgSettings;
     private String ticker;
 
     public TemplateDonationFragment(Map<String, Object> productMap, String ticker) {
@@ -118,11 +121,18 @@ public class TemplateDonationFragment extends Fragment {
         imgSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Settings.ACTION_SETTINGS));
+                ((HomeActivity) requireActivity()).showDialog();
             }
         });
         txt_year = v.findViewById(R.id.txt_year);
         txt_masjid_name = v.findViewById(R.id.txt_masjid_name);
+        recycleViewDonation = v.findViewById(R.id.recycleViewDonation);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        recycleViewDonation.setLayoutManager(linearLayoutManager);
+        setData(productMap, ticker);
+    }
+
+    public void setData(Map<String, Object> productMap, String ticker) {
         LayoutInflater vi = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         Map<String, Object> donaorsMap = (Map<String, Object>) productMap.get("donars");
         Calendar calendar = Calendar.getInstance();
@@ -130,15 +140,29 @@ public class TemplateDonationFragment extends Fragment {
         txt_year.setText(year + " Monthly Contributions");
         marqueeText.setText(ticker);
         marqueeText.setSelected(true);
-        String name = Utils.getUserName(getContext());
-        txt_masjid_name.setText(name);
+        try {
+            String name = Utils.getUserName(getContext());
+            txt_masjid_name.setText(name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         ArrayList<Map<String, String>> donaorsList = (ArrayList<Map<String, String>>) donaorsMap.get(year + "");
-        recycleViewDonation = v.findViewById(R.id.recycleViewDonation);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        recycleViewDonation.setLayoutManager(linearLayoutManager);
+
         donationAdapter = new DonationAdapter(getActivity(), donaorsList);
         recycleViewDonation.setAdapter(donationAdapter);
         handler.postDelayed(runnable, speedScroll);
     }
 
+    public boolean onKeyEvent(KeyEvent event) {
+        switch (event.getKeyCode()) {
+            case KeyEvent.KEYCODE_DPAD_UP:
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
+                imgSettings.setFocusable(true);
+                imgSettings.setFocusableInTouchMode(true);
+                imgSettings.requestFocus();
+                break;
+        }
+        return false;
+    }
 }

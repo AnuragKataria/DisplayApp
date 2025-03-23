@@ -8,7 +8,7 @@
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:orientation="horizontal">
 
         <com.quickfix.displaytv.common_ui.TextViewBold
@@ -42,7 +42,7 @@
 
             <ImageView
                 android:id="@+id/imgSettings"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/settings"
                 android:padding="10dp"
@@ -61,6 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/linear"
         android:layout_margin="3dp"
+        android:gravity="center"
         android:background="#EfEDED"
         android:orientation="horizontal"
         android:padding="5dp"
@@ -103,6 +104,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:visibility="gone"
             android:gravity="center"
             android:text="Note"
             android:textColor="#000000"
@@ -111,9 +113,9 @@
         <com.quickfix.displaytv.common_ui.TextViewBold
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:gravity="center"
-            android:text="P.A"
+            android:text="Promise Amount"
             android:textColor="#000000"
             android:textSize="16dp" />
 

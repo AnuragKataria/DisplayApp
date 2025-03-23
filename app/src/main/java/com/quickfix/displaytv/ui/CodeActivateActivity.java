@@ -142,7 +142,7 @@ public class CodeActivateActivity extends AppCompatActivity implements View.OnCl
                                 finish();
                             } else {
                                 if (deviceList.size() == maxScreens) {
-                                    Toast.makeText(context, "License has already been used in 50 Devices", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "License has already been used in 5 Devices", Toast.LENGTH_SHORT).show();
                                 } else {
                                     deviceList.add(Utils.getDeviceID(context));
                                     String uID = (String) data.get("assignedTo");

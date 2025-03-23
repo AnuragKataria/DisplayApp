@@ -1,15 +1,21 @@
 package com.quickfix.displaytv.viewpagertransformation;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -17,6 +23,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -113,6 +120,9 @@ public class HomeActivity extends AppCompatActivity {
         expirydialog = new Dialog(context);
         displayApplication = (DisplayApplication) getApplicationContext();
         viewPager = findViewById(R.id.viewpager);
+
+
+
     }
 
     @Override
@@ -208,16 +218,20 @@ public class HomeActivity extends AppCompatActivity {
                 });
     }
 
+    private TemplateDonationFragment templateDonationFragment;
+
     private void getDataFromServer() {
         displayApplication.getDatabaseReference().child("vendor").child(Utils.getVendorId(context)).child("restaurants").child(Utils.getUserId(context))
                 .child("screen")
                 .child(Utils.getLicenseKey(context))
-                .child("pages").addListenerForSingleValueEvent(new ValueEventListener() {
+                .child("pages").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         try {
                             size = (int) snapshot.getChildrenCount();
+
                             pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
+
                             if (snapshot.getValue() != null) {
                                 ArrayList<HashMap<String, Object>> dataArrayList = new ArrayList<>();
                                 ArrayList<Long> timeArrayList = new ArrayList<>();
@@ -271,7 +285,10 @@ public class HomeActivity extends AppCompatActivity {
                                     timeArrayList.add(DELAY_MS);
                                     dataArrayList.add(dataObject);
                                     setDataOnViewFirst(dataObject);
+
                                 }
+
+
                                 int size = dataArrayList.size();
                                 Utils.setPageSize(context, size);
                                 Utils.saveData(context, dataArrayList);
@@ -306,6 +323,8 @@ public class HomeActivity extends AppCompatActivity {
                             } else {
                                 Toast.makeText(context, "No data available for this User", Toast.LENGTH_SHORT).show();
                             }
+
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -391,9 +410,13 @@ public class HomeActivity extends AppCompatActivity {
                     if (DisplaySingleTone.getInstance().getFirstType() == -1) {
                         DisplaySingleTone.getInstance().setFirstType(5);
                     }
-                    HashMap<String, Object> data = (HashMap<String, Object>) dataObject.get("data");
+//                    HashMap<String, Object> data = (HashMap<String, Object>) dataObject.get("data");
+                    LinkedTreeMap<String, HashMap<String, Object>> productMap = (LinkedTreeMap<String, HashMap<String, Object>>) dataObject.get("data");
+                    Gson gson = new Gson();
+                    JsonObject jsonObject = gson.toJsonTree(productMap).getAsJsonObject();
+                    HashMap<String, Object> data = new Gson().fromJson(jsonObject, HashMap.class);
                     String ticker = (String) dataObject.get("ticker");
-                    pagerAdapter.addFragments(new TemplateDonationFragment(data , ticker));
+                    pagerAdapter.addFragments(new TemplateDonationFragment(data, ticker));
                     break;
             }
         } else {
@@ -541,7 +564,22 @@ public class HomeActivity extends AppCompatActivity {
                     }
                     HashMap<String, Object> data = (HashMap<String, Object>) dataObject.get("data");
                     String ticker = (String) dataObject.get("ticker");
-                    pagerAdapter.addFragments(new TemplateDonationFragment(data, ticker));
+//                    if ( templateDonationFragment != null) {
+//                        //templateDonationFragment.setData(data, ticker);
+//                        // Restart the app
+//                        Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.quickfix.displaytv");
+//                        if (launchIntent != null) {
+//                            startActivity(launchIntent);
+//                        }
+//
+//
+//                    } else {
+//
+//
+//                    }
+                    templateDonationFragment = new TemplateDonationFragment(data, ticker);
+                    pagerAdapter.addFragments(templateDonationFragment);
+
                     break;
             }
         } else {
@@ -597,9 +635,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onUserLeaveHint() {
         super.onUserLeaveHint();
-
     }
-
 
     public void resetPreferredLauncherAndOpenChooser() {
         Intent startMain = new Intent(Intent.ACTION_MAIN);
@@ -796,105 +832,60 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    private void setAnimationExtra() {
 
-//        SlowTransformation slowTransformation = new SlowTransformation();
-//        SimpleTransformation simpleTransformation = new SimpleTransformation();
-//        DepthTransformation depthTransformation = new DepthTransformation();
-//        ZoomOutTransformation zoomOutTransformation = new ZoomOutTransformation();
-//        Clock_SpinTransformation clockSpinTransformation = new Clock_SpinTransformation();
-//        AntiClockSpinTransformation antiClockSpinTransformation = new AntiClockSpinTransformation();
-//        FidgetSpinTransformation fidgetSpinTransformation = new FidgetSpinTransformation();
-//        VerticalFlipTransformation verticalFlipTransformation = new VerticalFlipTransformation();
-//        HorizontalFlipTransformation horizontalFlipTransformation = new HorizontalFlipTransformation();
-//        PopTransformation popTransformation = new PopTransformation();
-//        FadeOutTransformation fadeOutTransformation = new FadeOutTransformation();
-//        CubeOutRotationTransformation cubeOutRotationTransformation = new CubeOutRotationTransformation();
-//        CubeInRotationTransformation cubeInRotationTransformation = new CubeInRotationTransformation();
-//        CubeOutScalingTransformation cubeOutScalingTransformation = new CubeOutScalingTransformation();
-//        CubeInScalingTransformation cubeInScalingTransformation = new CubeInScalingTransformation();
-//        CubeOutDepthTransformation cubeOutDepthTransformation = new CubeOutDepthTransformation();
-//        CubeInDepthTransformation cubeInDepthTransformation = new CubeInDepthTransformation();
-//        HingeTransformation hingeTransformation = new HingeTransformation();
-//        GateTransformation gateTransformation = new GateTransformation();
-//        TossTransformation tossTransformation = new TossTransformation();
-//        FanTransformation fanTransformation = new FanTransformation();
-//        SpinnerTransformation spinnerTransformation = new SpinnerTransformation();
-//        VerticalShutTransformation verticalShutTransformation = new VerticalShutTransformation();
+    public void showDialog() {
+        Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.dialog_options);
+        dialog.setCancelable(false);
+        Button cancel = dialog.findViewById(R.id.cancel);
+        Button update = dialog.findViewById(R.id.update);
+        Button settings = dialog.findViewById(R.id.settings);
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Settings.ACTION_SETTINGS));
+            }
+        });
 
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-//        String transformation = Utils.getAnimation(context);
-//        switch (transformation) {
-//            case Constant.SLOW_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, slowTransformation);
-//                break;
-//            case Constant.SIMPLE_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, simpleTransformation);
-//                break;
-//            case Constant.DEPTH_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, depthTransformation);
-//                break;
-//            case Constant.ZOOM_OUT_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, zoomOutTransformation);
-//                break;
-//            case Constant.CLOCK_SPIN_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, clockSpinTransformation);
-//                break;
-//            case Constant.ANTICLOCK_SPIN_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, antiClockSpinTransformation);
-//                break;
-//            case Constant.FIDGET_SPINNER_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, fidgetSpinTransformation);
-//                break;
-//            case Constant.VERTICAL_FLIP_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, verticalFlipTransformation);
-//                break;
-//            case Constant.HORIZONTAL_FLIP_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, horizontalFlipTransformation);
-//                break;
-//            case Constant.POP_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, popTransformation);
-//                break;
-//            case Constant.FADE_OUT_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, fadeOutTransformation);
-//                break;
-//            case Constant.CUBE_OUT_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, cubeOutRotationTransformation);
-//                break;
-//            case Constant.CUBE_IN_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, cubeInRotationTransformation);
-//                break;
-//            case Constant.CUBE_OUT_SCALING_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, cubeOutScalingTransformation);
-//                break;
-//            case Constant.CUBE_IN_SCALING_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, cubeInScalingTransformation);
-//                break;
-//            case Constant.CUBE_OUT_DEPTH_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, cubeOutDepthTransformation);
-//                break;
-//            case Constant.CUBE_IN_DEPTH_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, cubeInDepthTransformation);
-//                break;
-//            case Constant.HINGE_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, hingeTransformation);
-//                break;
-//            case Constant.GATE_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, gateTransformation);
-//                break;
-//            case Constant.TOSS_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, tossTransformation);
-//                break;
-//            case Constant.FAN_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, fanTransformation);
-//                break;
-//            case Constant.SPINNER_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, spinnerTransformation);
-//                break;
-//            case Constant.VERTICAL_SHUT_TRANSFORMATION:
-//                viewPager.setPageTransformer(true, verticalShutTransformation);
-//                break;
-//        }
+                final String appPackageName = getPackageName();
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                } catch (ActivityNotFoundException anfe) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                }
+                dialog.dismiss();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = 800;
+        lp.height = 400;
+        dialog.show();
+        dialog.getWindow().setAttributes(lp);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(context.getResources().getColor(android.R.color.transparent)));
+
     }
-
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        Fragment fragment = getCurrentFragment();
+        if (fragment instanceof TemplateDonationFragment) {
+            return ((TemplateDonationFragment) fragment).onKeyEvent(event) || super.dispatchKeyEvent(event);
+        }
+        return super.dispatchKeyEvent(event);
+    }
+    private Fragment getCurrentFragment() {
+        int position = viewPager.getCurrentItem();
+        return getSupportFragmentManager().findFragmentByTag("android:switcher:" + viewPager.getId() + ":" + position);
+    }
 }

@@ -8,5 +8,9 @@
     <string name="quote_2">Nothing brings <font color="green">People</font> together like good <font color="green">FOOD</font></string>
     <string name="quote_3">A taste you\'ll <font color="green">Remember.</font></string>
     <string name="settings">settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="check_updates">Update</string>
+    <string name="choose_function">Please choose a function you want to perform!</string>
+    <string name="perform_function">Perform a function</string>
 
 </resources>
